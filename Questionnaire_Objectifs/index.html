@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="FR">
+    <head>
+        <title>Discube - Formulaire Objectifs</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="Questionnaire de fixation d'objectifs par Discube.com" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
+        <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="./css/css.css">
+        <link rel="icon" type="image/png" href="./images/Discube_favicon.png" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85970091-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-85970091-1');
+        </script>
+    </head>
+    <body>
+        <div class="survey">
+            <div class="survey__form__block">
+                <div class="survey__form__group__image">
+                    <!-- <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" alt="Selegua Image Marketing Digital. Photo by Merakist on Unsplash"> -->
+                    <img src="./images/image-discube-objectifs-markus-winkler-unsplash.jpg" alt="Discube Image Objectifs. Photo by Winkler on Unsplash">
+                </div>
+                <form action="php/dataCollection.php" method="post" id="survey__form" class="survey__form">
+                    <!-- bloc 0 -->
+                    <div class="survey__form__block_sub">
+                        <div class="survey__form__group -required">
+                            <div class="survey__form__group__logo">
+                                <h1>Vos objectifs sont-ils bien fixés?</h1>
+                                <a href="https://www.discube.com/"> 
+                                <img src="./images/Logo Discube-03.webp" alt="Logo Discube Serious Gaming">
+                                </a>
+                            </div>
+                            <div class="survey__form__group__text">
+                                <p>Planifier des objectifs SMART pour chaque participant et chaque département?
+                                <br>Informer tous les participants des objectifs généraux et individuels? 
+                                <br>Saucissonnez vos objectifs, du plus grand au plus spécifique?
+                                <br>Testez gratuitement où vous en êtes dans votre gestion des objectifs.
+                                </p>
+                            </div>
+                            <h2>Questions générales</h2>
+                            <div class="survey__form__group__input">
+                                <ul>
+                                    <li class="survey__form__input__structure">
+                                        <label for="madame" class="survey__form__input__label">Madame</label>
+                                        <input type="radio" name="sex" class="survey__form__input__sex" id="madame"
+                                            value="Madame" required />
+                                    </li>
+                                    <li class="survey__form__input__structure">
+                                        <label for="monsieur" class="survey__form__input__label">Monsieur</label>
+                                        <input type="radio" name="sex" class="survey__form__input__sex" id="monsieur"
+                                            value="Monsieur" required />
+                                    </li>
+                                    <li class="survey__form__input__structure">
+                                        <label for="autre" class="survey__form__input__label">Autre</label>
+                                        <input type="radio" name="sex" class="survey__form__input__sex" id="autre"
+                                            value="Autre" required />
+                                        <!--<span class="survey__form__input__label">Autre</span>-->
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group -required">
+                            <!--<label for="name">Prénom</label>-->
+                            <div class="survey__form__group__input">
+                                <input type="text" name="firstname" id="firstname" placeholder="Prénom"
+                                    class="survey__form__input__text" required />
+                            </div>
+                        </div>
+                        <div class="survey__form__group -required">
+                            <!--<label for="name">Nom</label>-->
+                            <div class="survey__form__group__input">
+                                <input type="text" name="name" id="name" placeholder="Nom" class="survey__form__input__text" required />
+                            </div>
+                        </div>
+                        <!-- Hidden for now as no DB behind it -->
+                        <div class="survey__form__group -required">
+                            <label for="name">E-mail</label>
+                            <div class="survey__form__group__input">
+                                <input type="email" name="eMail" id="eMail" placeholder="E-mail"
+                                    class="survey__form__input__text" required />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- block 1 -->
+                    <div class="survey__form__block_sub">
+                        <div class="survey__form__group  -required">
+                            <div class="survey__form__answers_wrapper">
+                                <h2>1/3 Préparation des objectifs</h2>
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <label for="question1">Les objectifs des départements, des équipes et des individus sont-ils en lien avec celui de l’entreprise ?</label>
+                            <div class="survey__form__questions" id="question1">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question1" id="Q011" class="survey__form__input__radio1" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q011">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question1" id="Q012" class="survey__form__input__radio1" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q012">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question1" id="Q013" class="survey__form__input__radio1" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q013">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question1" id="Q013" class="survey__form__input__radio1" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q013">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question1" id="Q014" class="survey__form__input__radio1" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q014">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question2">Les objectifs définis sont-ils spécifiques ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question2" id="Q021" class="survey__form__input__radio1" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q021">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question2" id="Q022" class="survey__form__input__radio1" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q022">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question2" id="Q023" class="survey__form__input__radio1" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q023">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question2" id="Q024" class="survey__form__input__radio1" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q024">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question2" id="Q025" class="survey__form__input__radio1" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q025">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question3">Les objectifs sont-ils mesurables ? </label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question3" id="Q031" class="survey__form__input__radio1" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q031">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question3" id="Q032" class="survey__form__input__radio1" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q032">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question3" id="Q033" class="survey__form__input__radio1" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q033">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question3" id="Q034" class="survey__form__input__radio1" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q034">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question3" id="Q035" class="survey__form__input__radio1" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q035">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question4">Une méthode de mesure est-elle définie pour chaque objectif (indicateur de performance) ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question4" id="Q041" class="survey__form__input__radio1" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q041">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question4" id="Q042" class="survey__form__input__radio1" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q042">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question4" id="Q043" class="survey__form__input__radio1" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q043">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question4" id="Q044" class="survey__form__input__radio1" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q044">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question4" id="Q045" class="survey__form__input__radio1" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q045">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question5">Un timing est-il prévu pour la réalisation de chaque objectif ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question5" id="Q051" class="survey__form__input__radio1" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q051">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question5" id="Q052" class="survey__form__input__radio1" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q052">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question5" id="Q053" class="survey__form__input__radio1" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q053">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question5" id="Q054" class="survey__form__input__radio1" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q054">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question5" id="Q055" class="survey__form__input__radio1" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q055">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question6"> Les objectifs sont-ils prévus à des délais différents (court, moyen et long terme) ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question6" id="Q061" class="survey__form__input__radio1" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q061">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question6" id="Q062" class="survey__form__input__radio1" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q062">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question6" id="Q063" class="survey__form__input__radio1" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q063">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question6" id="Q064" class="survey__form__input__radio1" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q064">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question6" id="Q065" class="survey__form__input__radio1" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q065">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question7"> Les objectifs sont-ils réalistes (en lien avec la réalité du business) ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question7" id="Q071" class="survey__form__input__radio1" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q071">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question7" id="Q072" class="survey__form__input__radio1" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q072">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question7" id="Q073" class="survey__form__input__radio1" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q073">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question7" id="Q074" class="survey__form__input__radio1" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q074">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question7" id="Q075" class="survey__form__input__radio1" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q075">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question8"> Les objectifs sont-ils atteignables pour l’individu qui les reçoit ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question8" id="Q081" class="survey__form__input__radio1" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q081">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question8" id="Q082" class="survey__form__input__radio1" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q082">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question8" id="Q083" class="survey__form__input__radio1" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q083">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question8" id="Q084" class="survey__form__input__radio1" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q084">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question8" id="Q085" class="survey__form__input__radio1" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q085">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question9"> Les objectifs sont-ils aussi bien des objectifs pour améliorer le business que des objectifs pour permettre à l’individu d’évoluer et de gagner en compétence ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question9" id="Q091" class="survey__form__input__radio1" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q091">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question9" id="Q092" class="survey__form__input__radio1" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q092">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question9" id="Q093" class="survey__form__input__radio1" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q093">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question9" id="Q094" class="survey__form__input__radio1" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q094">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question9" id="Q095" class="survey__form__input__radio1" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q095">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question10"> Les objectifs sont-ils différents d’années en année ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question10" id="Q101" class="survey__form__input__radio1" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q101">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question10" id="Q102" class="survey__form__input__radio1" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q102">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question10" id="Q103" class="survey__form__input__radio1" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q103">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question10" id="Q104" class="survey__form__input__radio1" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q104">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question10" id="Q105" class="survey__form__input__radio1" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q105">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question11"> Le nombre d’objectifs par personne est-il comrpis entre 4 et 6 maximum ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question11" id="Q111" class="survey__form__input__radio1" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q111">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question11" id="Q112" class="survey__form__input__radio1" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q112">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question11" id="Q113" class="survey__form__input__radio1" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q113">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question11" id="Q114" class="survey__form__input__radio1" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q114">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question11" id="Q115" class="survey__form__input__radio1" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q115">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- block 2 -->
+                    <div class="survey__form__block_sub">
+                        <div class="survey__form__group  -required">
+                            <div class="survey__form__answers_wrapper">
+                                <h2>2/3 Communication des objectifs</h2>
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <label for="question21">Chaque année l’objectif de l’entreprise est communiqué aux équipes ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question21" id="Q211" class="survey__form__input__radio2" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q211">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question21" id="Q212" class="survey__form__input__radio2" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q212">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question21" id="Q213" class="survey__form__input__radio2" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q213">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question21" id="Q214" class="survey__form__input__radio2" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q214">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question21" id="Q215" class="survey__form__input__radio2" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q215">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question22">Une fois les objectifs définis par le manager, ils sont discutés avec le collaborateur et sont adaptés au besoin  ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question22" id="Q221" class="survey__form__input__radio2" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q221">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question22" id="Q222" class="survey__form__input__radio2" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q222">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question22" id="Q223" class="survey__form__input__radio2" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q223">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question22" id="Q224" class="survey__form__input__radio2" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q224">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question22" id="Q225" class="survey__form__input__radio2" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q225">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question23">Les objectifs sont formulés de manière claire et précise (idéalement sous la méthode SMART) ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question23" id="Q231" class="survey__form__input__radio2" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q231">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question23" id="Q232" class="survey__form__input__radio2" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q232">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question23" id="Q233" class="survey__form__input__radio2" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q233">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question23" id="Q234" class="survey__form__input__radio2" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q234">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question23" id="Q235" class="survey__form__input__radio2" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q235">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question24">Les objectifs sont-ils formalisés par écrit  ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question24" id="Q241" class="survey__form__input__radio2" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q241">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question24" id="Q242" class="survey__form__input__radio2" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q242">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question24" id="Q243" class="survey__form__input__radio2" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q243">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question24" id="Q244" class="survey__form__input__radio2" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q244">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question24" id="Q245" class="survey__form__input__radio2" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q245">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question25">Une explication est-elle donnée pour expliquer le choix de ses objectifs  ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question25" id="Q251" class="survey__form__input__radio2" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q251">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question25" id="Q252" class="survey__form__input__radio2" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q252">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question25" id="Q253" class="survey__form__input__radio2 value="3" required/>
+                                        <label class="survey__form__input__label" for="Q253">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question25" id="Q254" class="survey__form__input__radio2" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q254">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question25" id="Q255" class="survey__form__input__radio2" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q255">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- block 3 -->
+                    <div class="survey__form__block_sub">
+                        <div class="survey__form__group  -required">
+                            <div class="survey__form__answers_wrapper">
+                                <h2>3/3 Suivi des objectifs</h2>
+                                <i class="fas fa-compress-arrows-alt"></i>
+                            </div>
+                            <label for="question31">Des suivis réguliers sont-ils planifiés pour faire le point sur l’avancement des objectifs ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question31" id="Q311" class="survey__form__input__radio3" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q311">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question31" id="Q312" class="survey__form__input__radio3" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q312">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question31" id="Q313" class="survey__form__input__radio3" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q313">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question31" id="Q314" class="survey__form__input__radio3" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q314">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question31" id="Q315" class="survey__form__input__radio3" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q315">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question32">Les objectifs sont évalués en cours d’année afin de prendre le pouls ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question32" id="Q321" class="survey__form__input__radio3" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q321">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question32" id="Q322" class="survey__form__input__radio3" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q322">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question32" id="Q323" class="survey__form__input__radio3" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q323">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question32" id="Q324" class="survey__form__input__radio3" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q324">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question32" id="Q325" class="survey__form__input__radio3" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q325">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question33">Les objectifs sont-ils réévalués en fin d’année ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question33" id="Q331" class="survey__form__input__radio3" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q331">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question33" id="Q332" class="survey__form__input__radio3" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q332">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question33" id="Q333" class="survey__form__input__radio3" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q333">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question33" id="Q334" class="survey__form__input__radio3" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q334">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question33" id="Q335" class="survey__form__input__radio3" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q335">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question34">Des feedbacks sont-ils formulés par le manager tout au long de l’année pour un bon suivi  ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question34" id="Q341" class="survey__form__input__radio3" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q341">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question34" id="Q342" class="survey__form__input__radio3" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q342">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question34" id="Q343" class="survey__form__input__radio3" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q343">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question34" id="Q344" class="survey__form__input__radio3" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q344">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question34" id="Q345" class="survey__form__input__radio3" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q345">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="survey__form__group  -required">
+                            <label for="question35">Les collaborateurs viennent-ils demandés des feed-back pour savoir s’ils sont dans la bonne direction ?</label>
+                            <div class="survey__form__questions">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="question35" id="Q351" class="survey__form__input__radio3" value="1" required/>
+                                        <label class="survey__form__input__label" for="Q351">Jamais</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question35" id="Q352" class="survey__form__input__radio3" value="2" required/>
+                                        <label class="survey__form__input__label" for="Q352">Rarement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question35" id="Q353" class="survey__form__input__radio3" value="3" required/>
+                                        <label class="survey__form__input__label" for="Q353">Parfois</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question35" id="Q354" class="survey__form__input__radio3" value="4" required/>
+                                        <label class="survey__form__input__label" for="Q354">Régulièrement</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="question35" id="Q355" class="survey__form__input__radio3" value="5" required/>
+                                        <label class="survey__form__input__label" for="Q355">Toujours</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- boutons-->
+                    <div class="survey__form__submit__wrapper">
+                        <button type="submit" id="survey__form__submit" class="survey__form__submit button -primary"> J'évalue mes objectifs</button>
+                    </div>
+                </form>
+                <div id="survey__result" class="d-none">
+                    <div class="survey__form__group__logo">
+                        <h1>Test de objectifs</h1>
+                        <img src="./images/Logo Discube-03.webp" alt="Logo de Discube Serious Gaming pour RH">
+                    </div>
+                    <br><span id="survey__person__output"></span>
+                    <p>Vous trouverez ci-dessous, les résultats de votre étude.
+                        A sa lecture, vous devriez en savoir plus sur la gestion des objectifs dans votre entreprise. 
+                        Nous espérons que cela vous sera utile pour progresser et mettre en place quelques outils ou actions efficaces.</p>
+                    <div class="myChart">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <div  class="survey__form__answers_wrapper">
+                        <!-- Réponses intelligente block 1 -->
+                        <div class="survey__form__block_sub_small">
+                            <i class="fas fa-eye"></i>
+                            A la thématique 1/3 "Préparer les objectifs",  vous avez réalisé le score de <span id="survey__score__output1"></span>%
+                            <br>
+                            <br>
+                            <p class="d-none" id="q-1-0">
+                                Attention, l'établissement des objectifs ne semble pas abouti. 
+                                Une rencontre avec l'un de nos experts Discube est conseillé. 
+                                Il vous permettra d'y voir plus clair. 
+                                <br> --> <a href="https://www.discube.com/contact">Prenons RDV</a>. 
+                            </p>
+                            <p class="d-none" id="q-1-1">
+                                Vous êtes en bonne voie pour optimiser d'avantage la fixation de vos objectifs. 
+                                Découvrez sur notre site <a href="https://www.discube.com/th%C3%A9matique-objectifs">une méthodologie éprouvée</a>. 
+                                Retrouvez également plus d'information dans notre <a href="https://www.discube.com/blog">blog</a>.
+                            </p>
+                            <p class="d-none" id="q-1-2">
+                                Votre fixation d'objectif à l'air de faire ses preuves. 
+                                Découvrez via un <a href="https://www.discube.com/blog">témoignage</a> comment la thématique Objectif peut vous aider à performer davantage ! 
+                            </p>
+                        </div>
+
+                        <!-- Réponses intelligente block 2 -->
+                        <div class="survey__form__block_sub_small">
+                            <i class="fas fa-comment"></i>
+                            A la thématique 2/3 "Communiquer les objectifs", vous avez réalisé le score de <span id="survey__score__output2"></span>%
+                            <br>
+                            <br>
+                            <p class="d-none" id="q-2-0">
+                                La communication de vos objectifs ne semble pas optimale car elle est peu réalisée. 
+                                Pensez à fournir davantage d'éléments à vos équipes. 
+                                Pour ce faire découvrez la méthodologie employée par les expert Discube dans notre <a href="https://www.discube.com/blog">blog</a>.
+                            </p>
+                            <p class="d-none" id="q-2-1">
+                                La communication de vos objectifs est présente. 
+                                Elle gagnerait à être davantage exploitée. 
+                                Découvrez comment le Discube peut optimiser votre posture et votre communication dans notre <a href="https://www.discube.com/blog">blog</a>.   
+                            </p>
+                            <p class="d-none" id="q-2-2">
+                                La communication de vos objectifs semble efficace. 
+                                Nos experts Discube ont mis en place un système efficace qui vous permettra de challenger la communication des objectifs envers vos équipes. 
+                                Envie d'en savoir plus ? <a href="https://www.discube.com/contact">Prenez rendez-vous</a> avec l'un de nos experts Discube, il se fera un plaisir de vous l'expliquer.
+                            </p>
+                        </div>
+
+                        <!-- Réponses intelligente block 3 -->
+                        <div class="survey__form__block_sub_small">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                            A la thématique 3/6 "Suivi des objectifs", vous avez réalisé le score de <span id="survey__score__output3"></span>%
+                            <br>
+                            <br>
+                            <p class="d-none" id="q-3-0">
+                                Le suivi des objectifs pourrait être plus efficace grâce à des feedback régulier. 
+                                Ceux-ci permettront à vos équipes de s'ajuster pour mieux atteindre les objectifs.
+                                Découvrez la thématique <a href="https://www.discube.com/thematique-feedback">Feed-back</a> pour optimiser les échanges avec vos équipes.
+                            </p>
+                            <p class="d-none" id="q-3-1">
+                                Vos actions de suivi semblent aller dans la bonne direction. 
+                                Pensez toutefois à assurer un suivi plus récurrent. 
+                                Pas besoin de prendre 1H00 pour en parler. 
+                                Quelques minutes suffisent. 
+                                Nos experts ont mis en place une technique de suivi appelée « coup de boost ». 
+                                Elle permet aux équipes d'évaluer leur situation et de trouver des solutions en les responsabilisant. 
+                                Envie d'en savoir plus ? <a href="https://www.discube.com/contact">Prenez rendez-vous</a> avec l'un de nos experts Discube, il se fera un plaisir de vous l'expliquer.
+                            </p>
+                            <p class="d-none" id="q-3-2">
+                                Waouw, ça fonctionne pas mal par ici. Envie d'optimiser d'avantage votre suivi ?
+                                Découvrez nos deux thématiques complémentaires :
+                                <ul>
+                                    <li>Feedback : pour stimuler et assurer des échanges plus constructifs avec les équipes</li>
+                                    <li>Évaluation : pour challenger votre méthode d'évaluation des objectifs et fournir des faits concrets concernant l'atteinte des <a href="https://www.discube.com/th%C3%A9matique-objectifs">objectifs</a>.</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <p>De nombreuses pistes d'amélioration sont possibles. Découvrez les sur <a href="https://www.discube.com/blog">notre site.</a></p>
+                    </div>
+                    <br>
+                    <div class="l-main-buttonToContact_wrapper">
+                        <div class="l-main-buttonToContact">
+                            <i class="fas fa-paper-plane"></i>
+                            <a href="https://www.discube.com/contact">Contactez-nous</a>
+                        </div>
+                    </div>
+                    <div class="l-main-butterRS-wrapper">
+                        <button id="survey__reset" class="button -secondary">Relancer un formulaire</button>
+                        <div>
+                            <a href="https://www.linkedin.com/company/discube/"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://fr-fr.facebook.com/discube.by.umidra/"><i class="fab fa-facebook-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Graphique pour affichage des résultats -->
+        <script src="./js/graph.js"></script>
+        <!-- Logique de calcul -->
+        <script src="./js/calculation.js"></script>
+    </body>
+</html>
